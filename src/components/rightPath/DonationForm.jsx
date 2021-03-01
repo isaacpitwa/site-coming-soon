@@ -8,16 +8,16 @@ import { Field, Form, Formik } from 'formik';
 
 export default function DonationForm() {
     function validate(values) {
-        const errors = {};
+        var errors={};
         if (!values.firstName) errors.firstName = 'Required';
         if (!values.lastName) errors.lastName = 'Required';
         if (!values.phoneNumber) errors.phoneNumber = 'Required';
         if (!values.amount) errors.amount = 'Required';
         if (!values.cardNumber) errors.cardNumber = 'Required';
-        if (!values.expiryMonth) { errors.expiryMonth = 'Required' } else if (values.expiryMonth <= 0 || values.expiryMonth > 12) {
+        if (!values.expiryMonth) { errors.expiryMonth = 'Required' } else if (parseInt(values.expiryMonth) <= 0 || parseInt(values.expiryMonth) > 12) {
             errors.expiryMonth = 'Invalid Expiry Month'
         };
-        if (!values.expiryYear) { errors.expiryYear = 'Required' } else if (values.expiryYear <= new Date().getFullYear()) {
+        if (!values.expiryYear) { errors.expiryYear = 'Required' } else if ( parseInt(values.expiryYear )<= new Date().getFullYear()) {
             errors.expiryYear = 'Invalid Expiry Year'
         };
         if (!values.email) {
@@ -32,13 +32,12 @@ export default function DonationForm() {
     return (
         <Box backgroundColor="white" p="10">
             <Formik
-                validate={validate}
-                initialValues={{ name: "Sasuke" }}
+                validate={()=>{}}
+                initialValues={{fName:'',lName:'',email:'',amount:0,phoneNumber:'',cardNumber:0,expiryMonth:0,expiryYear:0}}
                 onSubmit={(values, actions) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2))
+                         actions.setSubmitting(true);
+                        console.log(values)
                         actions.setSubmitting(false)
-                    }, 1000)
                 }}
             >
                 {(props) => (
@@ -68,7 +67,7 @@ export default function DonationForm() {
                                 {({ field, form }) => (
                                     <FormControl pt="2" isInvalid={form.errors.email && form.touched.email} isRequired>
                                         <FormLabel htmlFor="email" fontSize="sm" fontWeight="400">Email</FormLabel>
-                                        <Input {...field} type="email" id="email" fontSize="sm" fontWeight="400" />
+                                        <Input {...field} type="email" id="email" fontSize="sm" fontWeight="400" placeholder="johndoe@domain.com" />
                                         <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                                     </FormControl>
                                 )}
@@ -96,7 +95,7 @@ export default function DonationForm() {
                             {({ field, form }) => (
                                 <FormControl pt="4" isInvalid={form.errors.cardNumber && form.touched.cardNumber} isRequired>
                                     <FormLabel htmlFor="cardNumber" fontSize="sm" fontWeight="400"> Card Number</FormLabel>
-                                    <Input {...field} type="number" id="cardNumber" placeholder="Card Number" fontSize="sm" fontWeight="400" />
+                                    <Input {...field} type="text" id="cardNumber" placeholder="Card Number" fontSize="sm" fontWeight="400" />
                                     <FormErrorMessage>{form.errors.cardNumber}</FormErrorMessage>
                                 </FormControl>
                             )}
