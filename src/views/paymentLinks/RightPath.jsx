@@ -6,9 +6,9 @@ export default function RightPath() {
     return (
        <Box p="4">
            <Flex align="center" px="20" pb="2">
-               <Link href="https://right-path.org/">right-path.org</Link>
+               <Link href="https://right-path.org/" fontSize="sm">right-path.org</Link>
                <Spacer/>
-               <Text size="sm">+256 414 373 968 / +256 775 738282</Text>
+               <Text fontSize="sm">+256 414 373 968 / +256 775 738282</Text>
            </Flex>
            <Box  px="20" py="12" w="100%" h="89vh" background= 'url(/static/img/donation-bg@3x.png) center no-repeat' backgroundSize= 'cover'  bgImage="linear-gradient(rgba(18, 18, 44, 0.8), rgba(18, 18, 44, 0.8)), url(https://cdn.filestackcontent.com/TmUstxRASJyhlKy9RwSL);">
                 <Flex>
