@@ -6,9 +6,11 @@ import {
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
 
+import * as cybersourceRestApi from 'cybersource-rest-client'
+
 export default function DonationForm() {
     function validate(values) {
-        var errors={};
+        var errors = {};
         if (!values.firstName) errors.firstName = 'Required';
         if (!values.lastName) errors.lastName = 'Required';
         if (!values.phoneNumber) errors.phoneNumber = 'Required';
@@ -17,7 +19,7 @@ export default function DonationForm() {
         if (!values.expiryMonth) { errors.expiryMonth = 'Required' } else if (parseInt(values.expiryMonth) <= 0 || parseInt(values.expiryMonth) > 12) {
             errors.expiryMonth = 'Invalid Expiry Month'
         };
-        if (!values.expiryYear) { errors.expiryYear = 'Required' } else if ( parseInt(values.expiryYear )<= new Date().getFullYear()) {
+        if (!values.expiryYear) { errors.expiryYear = 'Required' } else if (parseInt(values.expiryYear) <= new Date().getFullYear()) {
             errors.expiryYear = 'Invalid Expiry Year'
         };
         if (!values.email) {
@@ -29,15 +31,22 @@ export default function DonationForm() {
         }
         return errors;
     }
+    const makeCyberSourcePayment = (values, submission) => {
+        var apiClient = new cybersourceRestApi.ApiClient();
+		var requestObj = new cybersourceRestApi.CreatePaymentRequest();
+    }
+
     return (
         <Box backgroundColor="white" p="10">
             <Formik
-                validate={()=>{}}
-                initialValues={{fName:'',lName:'',email:'',amount:0,phoneNumber:'',cardNumber:0,expiryMonth:0,expiryYear:0}}
+                validate={() => {
+                    console.log(validate)
+                }}
+                initialValues={{ fName: '', lName: '', email: '', amount: 0, phoneNumber: '', cardNumber: 0, expiryMonth: 0, expiryYear: 0 }}
                 onSubmit={(values, actions) => {
-                         actions.setSubmitting(true);
-                        console.log(values)
-                        actions.setSubmitting(false)
+                    actions.setSubmitting(true);
+                    console.log(values)
+                    actions.setSubmitting(false)
                 }}
             >
                 {(props) => (
