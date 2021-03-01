@@ -12,9 +12,14 @@ export default function DonationForm() {
         if (!values.firstName) errors.firstName = 'Required';
         if (!values.lastName) errors.lastName = 'Required';
         if (!values.phoneNumber) errors.phoneNumber = 'Required';
-        if (!values.password) errors.password = 'Required';
-        if (!values.policy) errors.policy = 'Accept Terms And Conditions';
-        if (values.password !== values.confirmPassword) errors.confirmPassword = "Passwords don't match";
+        if (!values.amount) errors.amount = 'Required';
+        if (!values.cardNumber) errors.cardNumber = 'Required';
+        if (!values.expiryMonth){ errors.expiryMonth = 'Required' }else if(values.expiryMonth<=0 || values.expiryMonth >12){
+            errors.expiryMonth = 'Invalid Expiry Month'
+        } ;
+        if (!values.expiryYear) {errors.expiryYear = 'Required'} else if(values.expiryYear <= new Date().getFullYear() ){
+            errors.expiryYear = 'Invalid Expiry Year'
+        };
         if (!values.email) {
             errors.email = 'Required';
         } else if (
