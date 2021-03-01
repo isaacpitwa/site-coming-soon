@@ -1,4 +1,4 @@
-import {Box, Text,Flex,Link, Spacer,Heading, Image, Button } from '@chakra-ui/react'
+import {Box, Text,Flex,Link, Spacer,Heading, Image, Button, Center } from '@chakra-ui/react'
 import React from 'react'
 import { DonationForm } from '../../components'
 
@@ -18,7 +18,7 @@ export default function RightPath() {
                         <Text>Donate and create an impact that will transform lives of under-privileged children, refugees, families and communities in Uganda and the World.</Text>
                         <Button borderRadius="0" mt="10" px="8" variant="outline" fontSize="sm" borderColor="white" color="white" _hover={{backgroundColor:"#F5A623",border:'0'}}>Learn More</Button>
                     </Box>
-                    <Box>
+                    <Box d="flex" alignItems="center" pl="16">
                         <DonationForm/>
                     </Box>
                 </Flex>
