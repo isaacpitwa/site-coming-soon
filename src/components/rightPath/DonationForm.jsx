@@ -5,9 +5,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
-
-import * as cybersourceRestApi from 'cybersource-rest-client'
-
+import Axios from 'axios';
 export default function DonationForm() {
     function validate(values) {
         var errors = {};
@@ -31,9 +29,16 @@ export default function DonationForm() {
         }
         return errors;
     }
-    const makeCyberSourcePayment = (values, submission) => {
-        var apiClient = new cybersourceRestApi.ApiClient();
-		var requestObj = new cybersourceRestApi.CreatePaymentRequest();
+const makeCyberSourcePayment = (values, submission) => {
+        Axios.post('http://localhost:3100/payment', values)
+          .then(function (response) {
+            submission(false)
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+            submission(false)
+          });
     }
 
     return (
@@ -45,8 +50,7 @@ export default function DonationForm() {
                 initialValues={{ fName: '', lName: '', email: '', amount: 0, phoneNumber: '', cardNumber: 0, expiryMonth: 0, expiryYear: 0 }}
                 onSubmit={(values, actions) => {
                     actions.setSubmitting(true);
-                    console.log(values)
-                    actions.setSubmitting(false)
+                    makeCyberSourcePayment(values,actions.setSubmitting)
                 }}
             >
                 {(props) => (
