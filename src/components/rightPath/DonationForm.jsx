@@ -14,10 +14,10 @@ export default function DonationForm() {
         if (!values.phoneNumber) errors.phoneNumber = 'Required';
         if (!values.amount) errors.amount = 'Required';
         if (!values.cardNumber) errors.cardNumber = 'Required';
-        if (!values.expiryMonth){ errors.expiryMonth = 'Required' }else if(values.expiryMonth<=0 || values.expiryMonth >12){
+        if (!values.expiryMonth) { errors.expiryMonth = 'Required' } else if (values.expiryMonth <= 0 || values.expiryMonth > 12) {
             errors.expiryMonth = 'Invalid Expiry Month'
-        } ;
-        if (!values.expiryYear) {errors.expiryYear = 'Required'} else if(values.expiryYear <= new Date().getFullYear() ){
+        };
+        if (!values.expiryYear) { errors.expiryYear = 'Required' } else if (values.expiryYear <= new Date().getFullYear()) {
             errors.expiryYear = 'Invalid Expiry Year'
         };
         if (!values.email) {
@@ -123,14 +123,14 @@ export default function DonationForm() {
                         </SimpleGrid>
                         <Button
                             mt={4}
-                           backgroundColor="#F5A623"
-                           color="white"
+                            backgroundColor="#F5A623"
+                            color="white"
                             width="100%"
                             borderRadius="sm"
                             fontSize="sm"
                             isLoading={props.isSubmitting}
                             type="submit"
-                            _hover={{opacity:'0.8'}}
+                            _hover={{ opacity: '0.8' }}
                         >DONATE ONCE</Button>
                     </Form>
                 )}
