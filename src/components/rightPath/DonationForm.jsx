@@ -1,7 +1,7 @@
 import {
     Box, FormControl,
     FormLabel,
-    FormErrorMessage, Input, Button, SimpleGrid
+    FormErrorMessage, Input, Button, SimpleGrid,useToast
 } from '@chakra-ui/react'
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 import * as ROUTES from '../../utils/constants/routes'
 export default function DonationForm() {
     var history = useHistory();
+    const toast = useToast()
     function validate(values) {
         let errors = {};
         if (!values.fName) errors.fName = 'Required';
@@ -47,14 +48,35 @@ const makeCyberSourcePayment = (values, submission) => {
             submission(false)
             console.log(response.data);
             if(response.data.error){
-
+                toast({
+                    title: "An Error Occured",
+                    description: "We've created your account for you.",
+                    status: "error",
+                    duration: 9000,
+                    isClosable: true,
+                  })
             }
-            else if(response.data.response.status === 201){
+            else if(response.data.data.status === 'DECLINED'){
+                toast({
+                    title: `An Error Occured -${response.data.data.errorInformation.reason}`,
+                    description: response.data.data.errorInformation.message,
+                    status: "error",
+                    duration: 9000,
+                    isClosable: true,
+                  })
+            }
+            else if(response.data.response.status === 201 && response.data.data.status === 'AUTHORIZED'){
                 history.push(ROUTES.RIGHT_PATH_PAYMENT_SUCCESS);
             }
           })
           .catch(function (error) {
-            console.log(error);
+            toast({
+                title: "An Error Occured",
+                description: error.message,
+                status: "error",
+                duration: 9000,
+                isClosable: true,
+              })
             submission(false)
           });
     }
