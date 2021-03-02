@@ -6,7 +6,10 @@ import {
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import * as ROUTES from '../../utils/constants/routes'
 export default function DonationForm() {
+    var history = useHistory();
     function validate(values) {
         var errors = {};
         if (!values.firstName) errors.firstName = 'Required';
@@ -41,6 +44,12 @@ const makeCyberSourcePayment = (values, submission) => {
           .then(function (response) {
             submission(false)
             console.log(response.data);
+            if(response.data.error){
+
+            }
+            else if(response.data.response.status === 201){
+                history.push(ROUTES.RIGHT_PATH_PAYMENT_SUCCESS);
+            }
           })
           .catch(function (error) {
             console.log(error);
