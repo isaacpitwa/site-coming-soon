@@ -5,7 +5,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
-import Axios from 'axios';
+import axios from 'axios';
 export default function DonationForm() {
     function validate(values) {
         var errors = {};
@@ -30,10 +30,16 @@ export default function DonationForm() {
         return errors;
     }
 const makeCyberSourcePayment = (values, submission) => {
-        Axios.post('http://localhost:3100/payment', values)
+        console.log(values)
+            axios({
+            method: 'POST',
+            url: 'http://localhost:3100/payment',
+            data: values
+        }
+        )
           .then(function (response) {
             submission(false)
-            console.log(response);
+            console.log(response.data);
           })
           .catch(function (error) {
             console.log(error);
@@ -45,7 +51,7 @@ const makeCyberSourcePayment = (values, submission) => {
         <Box backgroundColor="white" p="10">
             <Formik
                 validate={() => {
-                    console.log(validate)
+                    // console.log(validate)
                 }}
                 initialValues={{ fName: '', lName: '', email: '', amount: 0, phoneNumber: '', cardNumber: 0, expiryMonth: 0, expiryYear: 0 }}
                 onSubmit={(values, actions) => {
