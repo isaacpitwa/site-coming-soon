@@ -54,6 +54,8 @@ const makeCyberSourcePayment = (values, submission) => {
                     status: "error",
                     duration: 9000,
                     isClosable: true,
+                    position: "top-right",
+
                   })
             }
             else if(response.data.data.status === 'DECLINED'){
@@ -62,6 +64,7 @@ const makeCyberSourcePayment = (values, submission) => {
                     description: response.data.data.errorInformation.message,
                     status: "error",
                     duration: 9000,
+                    position: "top-right",
                     isClosable: true,
                   })
             }
@@ -72,6 +75,7 @@ const makeCyberSourcePayment = (values, submission) => {
           .catch(function (error) {
             toast({
                 title: "An Error Occured",
+                position: "top-right",
                 description: error.message,
                 status: "error",
                 duration: 9000,
