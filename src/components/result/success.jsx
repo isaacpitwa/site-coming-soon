@@ -15,7 +15,7 @@ export default function SuccessTransaction() {
         </Center>
         <Heading size="sm" pt="4">Transactions Successful</Heading>
         <Text fontSize="sm" color="GrayText" pt="2">We have sent  Email Transaction  Details<br/>to your email</Text>
-        <Button  type="submit" bgColor="#F5A623" color="white" size="md" mt="4">Go Back</Button>
+        <Button   bgColor="#F5A623" color="white" size="md" mt="4" as="a" href="https://right-path.org/">Go Back</Button>
         <Text fontSize="md" color="GrayText" pt="36">Did not recieve email, check spam filter, <br/> or  <Link to={ROUTES.RIGHT_PATH_PAYMENT_LINK} style={{color:'blue'}}>Donate again</Link></Text>
     </Box>
     )
