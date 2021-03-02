@@ -34,6 +34,7 @@ const makeCyberSourcePayment = (values, submission) => {
             axios({
             method: 'POST',
             url: 'http://localhost:3100/payment',
+            headers:{'Content-Type': `application/json`,},
             data: values
         }
         )
