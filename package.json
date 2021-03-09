@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://cybersource-node-api-isaacpitwa.vercel.app"
+  "proxy": "https://cybersource-payment-link.herokuapp.com"
 }
