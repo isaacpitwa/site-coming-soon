@@ -39,7 +39,7 @@ const makeCyberSourcePayment = (values, submission) => {
         console.log(values)
             axios({
             method: 'POST',
-            url: 'https://cybersource-node-api-isaacpitwa.vercel.app/payment',
+            url: 'https://cybersource-node-api.vercel.app/payment',
             headers:{'Content-Type': `application/json`,},
             data: values
         }
