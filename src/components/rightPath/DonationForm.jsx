@@ -6,11 +6,11 @@ import {
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import * as ROUTES from '../../utils/constants/routes'
 export default function DonationForm() {
     var history = useHistory();
-    const toast = useToast()
+    const toast = useToast();
     function validate(values) {
         let errors = {};
         if (!values.fName) errors.fName = 'Required';
@@ -36,7 +36,7 @@ export default function DonationForm() {
         return errors;
     }
 const makeCyberSourcePayment = (values, submission) => {
-        console.log(values)
+        // values.country = country;
             axios({
             method: 'POST',
             url: 'https://cybersource-payment-link.herokuapp.com/payment',
@@ -91,11 +91,9 @@ const makeCyberSourcePayment = (values, submission) => {
                 validate={validate}
                 initialValues={{ fName: '', lName: '', email: '', amount: undefined , phoneNumber: '', cardNumber: undefined , expiryMonth: undefined, expiryYear: undefined }}
                 onSubmit={(values, actions) => {
-
                     actions.setSubmitting(true);
                     makeCyberSourcePayment(values,actions.setSubmitting)
-                }}
-            >
+                }}>
                 {(props) => (
                     <Form>
                         <SimpleGrid columns={2} spacing={4}>
