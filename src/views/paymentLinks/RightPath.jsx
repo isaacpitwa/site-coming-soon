@@ -5,8 +5,6 @@ import { DonationForm } from '../../components'
 export default function RightPath() {
     const [isLargerThanTabSize] = useMediaQuery("(min-width: 768px)")
     const [isTabSize] = useMediaQuery("(min-width: 600px)")
-
-    const [isLargerThanPhoneSize] = useMediaQuery("(min-width: 320px)")
     const bgSize =isLargerThanTabSize?'89vh':''
     return (
        <Box p="4">
