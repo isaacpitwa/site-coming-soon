@@ -1,7 +1,7 @@
 import {
     Box, FormControl,
     FormLabel,
-    FormErrorMessage, Input, Button, SimpleGrid,useToast
+    FormErrorMessage, Input, Button, SimpleGrid,useToast,useMediaQuery
 } from '@chakra-ui/react'
 import React from 'react'
 import { Field, Form, Formik } from 'formik';
@@ -11,6 +11,8 @@ import * as ROUTES from '../../utils/constants/routes'
 export default function DonationForm() {
     var history = useHistory();
     const toast = useToast();
+    const [isLargerThanTabSize] = useMediaQuery("(min-width: 768px)")
+
     function validate(values) {
         let errors = {};
         if (!values.fName) errors.fName = 'Required';
