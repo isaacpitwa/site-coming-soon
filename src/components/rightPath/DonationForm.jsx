@@ -37,6 +37,7 @@ export default function DonationForm() {
     }
 const makeCyberSourcePayment = (values, submission) => {
         // values.country = country;
+        // Payment Link Flutterwave:https://dashboard.flutterwave.com/donate/k1z69ny7vois
             axios({
             method: 'POST',
             url: 'https://cybersource-payment-link.herokuapp.com/payment',
@@ -50,12 +51,11 @@ const makeCyberSourcePayment = (values, submission) => {
             if(response.data.error){
                 toast({
                     title: "An Error Occured",
-                    description: "We've created your account for you.",
+                    description: response.data.error.response.text,
                     status: "error",
                     duration: 9000,
                     isClosable: true,
                     position: "top-right",
-
                   })
             }
             else if(response.data.data.status === 'DECLINED'){
@@ -84,7 +84,6 @@ const makeCyberSourcePayment = (values, submission) => {
             submission(false)
           });
     }
-
     return (
         <Box backgroundColor="white" p="10">
             <Formik
@@ -182,6 +181,7 @@ const makeCyberSourcePayment = (values, submission) => {
                             borderRadius="sm"
                             fontSize="sm"
                             isLoading={props.isSubmitting}
+
                             type="submit"
                             _hover={{ opacity: '0.8' }}
                         >DONATE ONCE</Button>
