@@ -19,6 +19,7 @@ export default function DonationForm() {
         if (!values.amount) errors.amount = 'Required';
         if (!values.cardNumber) errors.cardNumber = 'Required';
         if (!values.expiryMonth) { errors.expiryMonth = 'Required' } 
+        if (!values.cvv) { errors.cvv = 'Required' } 
         if (values.expiryMonth && (parseInt(values.expiryMonth) <= 0 || parseInt(values.expiryMonth) > 12)) {
             errors.expiryMonth = 'Invalid Expiry Month'
         };
@@ -153,7 +154,7 @@ const makeCyberSourcePayment = (values, submission) => {
                                 </FormControl>
                             )}
                         </Field>
-                        <SimpleGrid columns={2} spacing={4}>
+                        <SimpleGrid columns={3} spacing={4}>
                             <Field name="expiryMonth" isRequired>
                                 {({ field, form }) => (
                                     <FormControl pt="4" isInvalid={form.errors.expiryMonth && form.touched.expiryMonth} isRequired>
@@ -168,6 +169,15 @@ const makeCyberSourcePayment = (values, submission) => {
                                     <FormControl pt="4" isInvalid={form.errors.expiryYear && form.touched.expiryYear} isRequired>
                                         <FormLabel htmlFor="expiryYear" fontSize="sm" fontWeight="400"> Expiry Year</FormLabel>
                                         <Input {...field} type="number" id="expiryYear" placeholder="2022" fontSize="sm" fontWeight="400" />
+                                        <FormErrorMessage>{form.errors.expiryYear}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                            <Field name="cvv" isRequired>
+                                {({ field, form }) => (
+                                    <FormControl pt="4" isInvalid={form.errors.cvv && form.touched.cvv} isRequired>
+                                        <FormLabel htmlFor="cvv" fontSize="sm" fontWeight="400">CVV</FormLabel>
+                                        <Input {...field} type="number" id="excvviryYear" placeholder="000" fontSize="sm" fontWeight="400" />
                                         <FormErrorMessage>{form.errors.expiryYear}</FormErrorMessage>
                                     </FormControl>
                                 )}
