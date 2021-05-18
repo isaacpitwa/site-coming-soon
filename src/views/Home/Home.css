@@ -1,0 +1,210 @@
+
+.content-wrapper{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 0px;
+    width: 100%;
+    order: 1;
+    color: white;
+  }
+  .text-wrapper{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    margin-right: 120px;
+  }
+  .hzBvvF p span {
+    font-size: 18px;
+    font-family: "DM Sans";
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    line-height: 33px;
+    position: relative;
+    padding-left: 70px;
+  }
+  p :last-child {
+    margin-bottom: 0;
+  }
+  .hzBvvF p span::before {
+    content: "";
+    display: block;
+    border-top: 2px solid rgb(255, 255, 255);
+    width: 48px;
+    position: absolute;
+    left: 0px;
+    top: 12px;
+  }
+  .hzBvvF h2 {
+    font-size: 48px;
+    font-family: "DM Sans";
+    color: rgb(255, 255, 255);
+    line-height: 1.35;
+    text-align: left;
+    max-width: 520px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+}
+@media (max-width: 1440px){
+.hzBvvF h2 {
+    font-size: 36px;
+    max-width: 570px;
+    margin-bottom: 25px;
+}
+.dLOufD {
+    padding-top: 15px;
+}
+.jUSvxy {
+    margin-top: 0px;
+}.jUSvxy .NormalClock .NormalUnitContainer .NormalupperCard span {
+    font-size: 36px;
+    line-height: 46px;
+}
+.jUSvxy .NormalClock .NormalUnitContainer .digitLabel {
+    margin-top: 5px;
+}
+
+}
+.dLOufD {
+    padding-top: 50px;
+}
+.dLOufD button {
+    font-size: 18px;
+    font-family: "DM Sans";
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    line-height: 33px;
+    background: transparent;
+    transition: all 0.2s ease-in-out 0s;
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.ggHLFe {
+    cursor: pointer;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(2, 132, 137);
+    min-height: 48px;
+    min-width: 48px;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 8px 15px;
+    border: 0px;
+    transition: all 0.3s ease 0s;
+}
+.dLOufD button::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0px;
+    height: 2px;
+    transition: all 0.75s ease-in-out 0s;
+    opacity: 0;
+}
+.dLOufD button::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0px;
+    height: 2px;
+    transition: all 0.75s ease-in-out 0s;
+    opacity: 0;
+    left: 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+/*  */
+
+
+.jUSvxy {
+    position: relative;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 50%;
+    order: 2;
+}
+.jUSvxy .NormalClock {
+    width: 550px;
+}
+.NormalClock {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    align-items: center;
+}
+.jUSvxy .NormalClock .NormalUnitContainer {
+    background: transparent;
+}
+.NormalUnitContainer {
+    display: block;
+    position: relative;
+    width: 140px;
+    height: auto;
+    perspective-origin: 50% 50%;
+    perspective: 300px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.NormalupperCard {
+    align-items: flex-end;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.NormallowerCard, .NormalupperCard {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.jUSvxy .NormalClock .NormalUnitContainer .NormalupperCard span {
+    font-size: 60px;
+    font-family: "DM Sans";
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    line-height: 0.8;
+    text-align: center;
+    letter-spacing: 0.025em;
+}
+.digitLabel {
+    font-size: 14px;
+    font-family: Roboto;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 12px;
+    text-align: center;
+}
+.jUSvxy .NormalClock .NormalUnitContainer .digitLabel {
+    font-size: 14px;
+    font-family: "DM Sans";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+

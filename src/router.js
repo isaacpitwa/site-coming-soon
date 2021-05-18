@@ -1,19 +1,19 @@
+import { Box } from '@chakra-ui/layout';
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-import { MainLayout } from './layout';
 import * as ROUTES from './utils/constants/routes';
-import { Box } from '@chakra-ui/react';
 import { Home } from './views';
+import {RouteWithLayout} from './components'
 
 
 const AppRouter = () => {
   return (
     <Switch>
-      <Box
+      <RouteWithLayout
         component={Home}
         path={ROUTES.LANDING}
-        layout={MainLayout}  exact/>
+        layout={Box}  exact/>
     </Switch>
   );
 }
