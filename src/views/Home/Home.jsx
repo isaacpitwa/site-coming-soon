@@ -25,7 +25,7 @@ const Home = () => {
                 <Heading size="md" color="white">Hozybook</Heading>
             </HStack>
             <Box d="flex">
-                <Box className="content-wrapper" px="36" >
+                <Box className="content-wrapper" px="32" >
                     <Box className="text-wrapper hzBvvF">
                         <p><span>Our website in under construction</span></p>
                         <h2><span>Something Big update is coming by our team. Wait! We are launching soon with amazing updates!</span></h2>
