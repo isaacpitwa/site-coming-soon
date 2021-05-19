@@ -8,3 +8,5 @@ export const RESET_PASSWORD = '/auth/reset-password';
 
 // Payment Links
 export const RIGHT_PATH_PAYMENT_LINK = '/right-path/donation';
+export const RIGHT_PATH_PAYMENT_SUCCESS = '/right-path/success';
+
