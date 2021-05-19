@@ -52,7 +52,9 @@
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 30px;
+    padding-top: 24px;
 }
+
 @media (max-width: 1440px){
 .hzBvvF h2 {
     font-size: 36px;
